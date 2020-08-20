@@ -5,11 +5,13 @@ public class Main {
 		int count=0;
 		int sum = 0;
 		int number = 1;
-		for(int i=1; i <= 10;i++){
+		for(int i=1; sum < 4000000;i++){
 			count = firstNum+secondNum;
 			firstNum=secondNum;
 			secondNum=count;
-			sum+=count;
+			if(count%2==0){
+				sum+=count;
+			}
 			System.out.print(count+" ");
 		}
 		System.out.println("\nTotal sum:"+sum);

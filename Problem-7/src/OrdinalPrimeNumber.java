@@ -6,7 +6,6 @@ public class OrdinalPrimeNumber {
 		for(; i < maxValue; i++) {
 			if(isPrime(i)) {
 				count++;
-				//System.out.println("Number " + i + " is a prime number");
 				if(count == limit) {
 					break;
 				}

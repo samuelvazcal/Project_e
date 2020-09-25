@@ -5,7 +5,6 @@ public class Main {
 
 		System.out.println("The " + LIMIT + "st prime number is : " + OrdinalPrimeNumber.primeNumber(MAX_VALUE,LIMIT));
 
-
 	}
 
 

@@ -21,10 +21,12 @@ public class Main {
 				+ "05886116467109405077541002256983155200055935729725\n"
 				+ "71636269561882670428252483600823257530420752963450";
 
-		int[] A = new int [4];
+		int[] A = new int [13];
 		int greatestProduct = 0;
 		String sSubChain;
 		String noLineFeedString;
+		boolean flag = true;
+		long ultimateThirteenDigits = 0;
 
 		System.out.println();
 		System.out.println("This is the number:\n" + thousandDigitNumber);
@@ -33,19 +35,22 @@ public class Main {
 		System.out.println();
 
 
-		for(int i = 0; i <= noLineFeedString.length()-4; i++) {
+		for(int i = 0; i <= noLineFeedString.length()-13; i++) {
 			int productCount = 1;
-			sSubChain = noLineFeedString.substring(i,i+4);
+			sSubChain = noLineFeedString.substring(i,i+13);
 			//System.out.println("sSubChain length is: " + sSubChain.length());
 			for(int j = 0; j < A.length; j++) {
 				A[j] = Character.getNumericValue(sSubChain.charAt(j));
 				productCount *= A[j];
 			}
 			greatestProduct = Math.max(greatestProduct,productCount);
+			if(productCount==greatestProduct) {
+				ultimateThirteenDigits = Long.parseLong(sSubChain);
+			}
 
 			System.out.println("Subchain number " + (i+1) + ": "  + sSubChain + " and the product of its four digits is : " + productCount);
 			System.out.println("The greatest product so far: " + greatestProduct);
-			System.out.println();
+			System.out.println("The ultimate thirteen digits are: " + ultimateThirteenDigits);
 		}
 
 

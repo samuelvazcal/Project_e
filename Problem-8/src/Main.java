@@ -22,7 +22,7 @@ public class Main {
 				+ "71636269561882670428252483600823257530420752963450";
 
 		int[] A = new int [13];
-		int greatestProduct = 0;
+		long greatestProduct = 0;
 		String sSubChain;
 		String noLineFeedString;
 		boolean flag = true;
@@ -36,7 +36,7 @@ public class Main {
 
 
 		for(int i = 0; i <= noLineFeedString.length()-13; i++) {
-			int productCount = 1;
+			long productCount = 1;
 			sSubChain = noLineFeedString.substring(i,i+13);
 			//System.out.println("sSubChain length is: " + sSubChain.length());
 			for(int j = 0; j < A.length; j++) {
@@ -50,7 +50,7 @@ public class Main {
 
 			System.out.println("Subchain number " + (i+1) + ": "  + sSubChain + " and the product of its four digits is : " + productCount);
 			System.out.println("The greatest product so far: " + greatestProduct);
-			System.out.println("The ultimate thirteen digits are: " + ultimateThirteenDigits);
+			System.out.println("The ultimate thirteen digits are: " + ultimateThirteenDigits + "\n");
 		}
 
 

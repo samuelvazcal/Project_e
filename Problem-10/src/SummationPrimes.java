@@ -14,10 +14,9 @@ public class SummationPrimes {
 
     public static boolean[] simpleSieve(int n) {
         boolean[] sieve = new boolean[n+1];   //false = prime, true = composite
-        sieve[0] = true; sieve[1] = true; sieve[2] = false;
-        for(int i = 4; i <= n ; i += 2) {
-            sieve[i] = true;
-        }
+        sieve[0] = true;
+        sieve[1] = true;
+        sieve[2] = false;
         int limit = (int) Math.sqrt(n)+1;
         for(int i = 3; i < limit; i += 2) {
             if(!sieve[i]) { //if prime (or not composite)
@@ -26,6 +25,9 @@ public class SummationPrimes {
                 }
             }
         }
+        for(int i = 4; i <= n ; i += 2) {
+            sieve[i] = true;
+        }
         return sieve;
     }
 
@@ -33,7 +35,7 @@ public class SummationPrimes {
         long count = 0;
         boolean[] primes = simpleSieve(n);
         for(int i = 1; i < primes.length; i++) {
-            if(!primes[i]) {
+            if(!primes[i]) {   //if i is prime
                 count += i;
             }
         }

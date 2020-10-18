@@ -12,10 +12,28 @@ public class SummationPrimes {
         return true;
     }
 
-    public static long summationPrime(long limit) {
+    public static boolean[] simpleSieve(int n) {
+        boolean[] sieve = new boolean[n+1];   //false = prime, true = composite
+        sieve[0] = true; sieve[1] = true; sieve[2] = false;
+        for(int i = 4; i <= n ; i += 2) {
+            sieve[i] = true;
+        }
+        int limit = (int) Math.sqrt(n)+1;
+        for(int i = 3; i < limit; i += 2) {
+            if(!sieve[i]) { //if prime (or not composite)
+                for(int j = i*i; j<=n; j+=i) {  // marks all multiples of i as composite
+                    sieve[j] = true;
+                }
+            }
+        }
+        return sieve;
+    }
+
+    public static long summationPrime(int n) {
         long count = 0;
-        for(int i = 1; i < limit; i++) {
-            if(isPrime(i)) {
+        boolean[] primes = simpleSieve(n);
+        for(int i = 1; i < primes.length; i++) {
+            if(!primes[i]) {
                 count += i;
             }
         }
